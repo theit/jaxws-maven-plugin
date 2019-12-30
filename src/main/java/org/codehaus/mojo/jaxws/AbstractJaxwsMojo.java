@@ -67,7 +67,6 @@ import org.codehaus.plexus.util.Os;
 import org.codehaus.plexus.util.cli.CommandLineException;
 import org.codehaus.plexus.util.cli.CommandLineUtils;
 import org.codehaus.plexus.util.cli.Commandline;
-import org.codehaus.plexus.util.cli.DefaultConsumer;
 import org.codehaus.plexus.util.cli.StreamConsumer;
 
 /**
@@ -663,7 +662,7 @@ abstract class AbstractJaxwsMojo
         return artifacts.stream().map( a -> a.getFile().getAbsolutePath() ).collect( Collectors.joining( File.pathSeparator ) );
     }
 
-    private String toString(Collection<Artifact> artifacts) {
+    private String toString( Collection<Artifact> artifacts ) {
         return artifacts
                 .stream().map( a -> String.join( ":", a.getGroupId(), a.getArtifactId(), a.getVersion() ) )
                 .collect( Collectors.joining( " " ) );
